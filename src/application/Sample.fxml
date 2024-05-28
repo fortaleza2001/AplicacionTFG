@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <MenuBar layoutY="-2.0" prefHeight="25.0" prefWidth="133.0" styleClass="toolbar" stylesheets="@application.css">
+        <menus>
+          <Menu mnemonicParsing="false" styleClass="magico" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onOpenSession" text="Open" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane accessibleRole="BUTTON" layoutX="24.0" layoutY="59.0" prefHeight="705.0" prefWidth="1154.0">
+         <children>
+            <AnchorPane layoutX="632.0" layoutY="42.0" prefHeight="287.0" prefWidth="466.0">
+               <children>
+                  <Label layoutX="134.0" layoutY="32.0" prefHeight="17.0" prefWidth="83.0" text="OPEN RAISE :" textFill="WHITE" />
+                  <Label layoutX="134.0" layoutY="65.0" prefHeight="17.0" prefWidth="127.0" text="3-Bet :" textFill="WHITE" />
+                  <Label layoutX="134.0" layoutY="104.0" text="Fold-to-3bet:" textFill="WHITE" />
+                  <Label layoutX="134.0" layoutY="135.0" text="Fold-BB-to-Steal:" textFill="WHITE" />
+                  <Label layoutX="134.0" layoutY="173.0" text="C-Bet Flop:" textFill="WHITE" />
+                  <Label fx:id="estadisticaPrefol1Label" layoutX="233.0" layoutY="32.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+                  <Label fx:id="estadisticaPrefol2Label" layoutX="180.0" layoutY="65.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+                  <Label fx:id="estadisticaPrefol3Label" layoutX="211.0" layoutY="104.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+                  <Label fx:id="estadisticaPrefol4Label" layoutX="233.0" layoutY="135.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+                  <Label fx:id="estadisticaPrefol5Label" layoutX="211.0" layoutY="173.0" prefHeight="17.0" prefWidth="127.0" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="28.0" layoutY="381.0" prefHeight="320.0" prefWidth="1103.0">
+               <children>
+                  <TableView fx:id="tabla" layoutX="1.0" layoutY="2.0" prefHeight="320.0" prefWidth="1103.0">
+                    <columns>
+                      <TableColumn fx:id="numero" editable="false" prefWidth="71.0" text="Nº" />
+                      <TableColumn fx:id="cartas" minWidth="0.0" prefWidth="152.0" text="CARTAS" />
+                        <TableColumn fx:id="ganancias" minWidth="0.0" prefWidth="118.0" text="GANANCIAS" />
+                        <TableColumn fx:id="fecha" minWidth="0.0" prefWidth="120.0" text="HORA" />
+                        <TableColumn fx:id="numeroJugadores" minWidth="0.0" prefWidth="130.0" text="Numero Jugadores" />
+                        <TableColumn fx:id="botones" minWidth="0.0" prefWidth="117.0" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <LineChart fx:id="grafico" layoutX="86.0" layoutY="35.0" prefHeight="276.0" prefWidth="583.0" styleClass="chart-title" title="dddd">
+              <xAxis>
+                <CategoryAxis prefHeight="39.0" prefWidth="515.0" side="BOTTOM" tickLabelFill="WHITE" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis prefHeight="139.0" prefWidth="38.0" side="LEFT" tickLabelFill="WHITE" tickLabelGap="5.0" tickLength="10.0" tickMarkVisible="false">
+                     <tickLabelFont>
+                        <Font size="11.0" />
+                     </tickLabelFont>
+                  </NumberAxis>
+              </yAxis>
+            </LineChart>
+            <Label fx:id="titulo" alignment="CENTER" contentDisplay="CENTER" layoutX="409.0" layoutY="-18.0" prefHeight="53.0" prefWidth="380.0" text="Selecciona una Sesion" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+   </children>
+</AnchorPane>

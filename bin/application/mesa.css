@@ -1,0 +1,41 @@
+.jugador {
+    -fx-border-width: 2px;      /* Ancho del borde */
+    -fx-border-color: white;    /* Color del borde */
+    -fx-border-radius: 50%;     /* Hace el borde redondo */
+    -fx-padding: 5px;           /* Espacio alrededor de la imagen */
+}
+
+.etiqueta {
+    -fx-background-color: black;    /* Relleno negro */
+    -fx-text-fill: white;           /* Color del texto */
+    -fx-padding: 5px;               /* Espacio alrededor del contenido */
+    -fx-border-radius: 5px;         /* Esquinas ligeramente redondeadas */
+    -fx-background-radius: 5px;     /* Fondo con esquinas redondeadas */
+}
+
+.fondo {
+    -fx-background-image: url("../resources/Fondo/fondo.jpg");
+    -fx-background-size: cover; /* Ajusta la imagen para cubrir el área completa */
+    -fx-background-position: center; /* Centra la imagen */
+    -fx-background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+.button {
+    -fx-background-color: #4CAF50; /* Color de fondo */
+    -fx-text-fill: black; /* Color del texto */
+    -fx-font-size: 30px; /* Tamaño de fuente */
+    -fx-font-weight: bold; /* Peso de la fuente */
+    -fx-padding: 8px 16px; /* Espaciado interno */
+    -fx-border-radius: 4px; /* Radio del borde */
+    -fx-background-radius: 4px; /* Radio del fondo */
+    -fx-border-color: transparent; /* Color del borde */
+    -fx-font-style: italic;
+    
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Color de fondo al hacer hover */
+    -fx-text-fill: white; /* Color del texto al hacer hover */
+    -fx-cursor: hand; /* Cambiar el cursor a una mano */
+}

@@ -1,0 +1,51 @@
+/* styles.css */
+.root {
+    -fx-background-color: #62605F; /* Color de fondo negro clarito */
+}
+
+
+/* styles.css */
+.button {
+    -fx-background-color: #4CAF50; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-font-weight: bold; /* Peso de la fuente */
+    -fx-padding: 8px 16px; /* Espaciado interno */
+    -fx-border-radius: 4px; /* Radio del borde */
+    -fx-background-radius: 4px; /* Radio del fondo */
+    -fx-border-color: transparent; /* Color del borde */
+    -fx-cursor: hand; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Cambiar color de fondo al pasar el mouse */
+}
+
+.button:pressed {
+    -fx-background-color: #388e3c; /* Cambiar color de fondo al hacer clic */
+}
+
+.toolbar {
+    
+    -fx-padding: 8px; /* Espaciado interno */
+    -fx-border-width: 2px;
+}
+
+
+/* styles.css */
+.menu-item {
+    -fx-border-color: white; /* Color del borde */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-radius: 4px; /* Radio del borde */
+}
+
+.menu-item:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Color de fondo al pasar el mouse */
+}
+
+/* LineChart */
+.chart-title {
+    -fx-text-fill: white; /* Color del texto del título */
+    -fx-font-size: 20px; /* Tamaño de la fuente del título */
+    -fx-font-weight: bold; /* Peso de la fuente del título */
+}

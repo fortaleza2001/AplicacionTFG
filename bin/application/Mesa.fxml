@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="922.0" prefWidth="1200.0" styleClass="fondo" stylesheets="@mesa.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController2">
+   <children>
+      <Circle fill="#158f1193" layoutX="611.0" layoutY="489.0" radius="250.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button layoutX="1067.0" layoutY="847.0" mnemonicParsing="false" onAction="#avanzarAccion" prefHeight="53.0" prefWidth="68.0" text="&gt;" />
+      <Button layoutX="989.0" layoutY="847.0" mnemonicParsing="false" onAction="#retrocederAccion" prefHeight="53.0" prefWidth="68.0" text="&lt;" />
+      <AnchorPane layoutX="204.0" layoutY="400.0" prefHeight="226.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador1Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador1Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador1Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador1Nombre" layoutX="9.0" layoutY="-8.0" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="250.0" layoutY="138.0" prefHeight="226.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador2Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador2Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador2Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador2Nombre" styleClass="etiqueta" stylesheets="@mesa.css" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="517.0" layoutY="23.0" prefHeight="219.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador3Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador3Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador3Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador3Nombre" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="759.0" layoutY="82.0" prefHeight="219.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador4Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador4Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador4Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador4Nombre" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="876.0" layoutY="368.0" prefHeight="219.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador5Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador5Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador5Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador5Nombre" layoutX="4.0" layoutY="-6.0" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="770.0" layoutY="614.0" prefHeight="219.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador6Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador6Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador6Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador6Nombre" layoutX="129.0" layoutY="6.0" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="269.0" layoutY="626.0" prefHeight="226.0" prefWidth="190.0">
+         <children>
+            <Circle fx:id="jugador8Circle" fill="#2197ff" layoutX="104.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador8Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="105.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador8Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="31.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador8Nombre" layoutX="-14.0" layoutY="14.0" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="517.0" layoutY="729.0" prefHeight="226.0" prefWidth="166.0">
+         <children>
+            <Circle fx:id="jugador7Circle" fill="#2197ff" layoutX="83.0" layoutY="74.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+            <Rectangle fx:id="jugador7Carta2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="84.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Rectangle fx:id="jugador7Carta1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="92.0" layoutX="10.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+            <Label fx:id="jugador7Nombre" layoutX="134.0" layoutY="14.0" styleClass="etiqueta" text="Label" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="446.0" layoutY="442.0" prefWidth="308.0">
+         <children>
+            <Rectangle fx:id="cartaFlop1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
+            <Rectangle fx:id="cartaFlop2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" layoutX="62.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
+            <Rectangle fx:id="cartaFlop3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" layoutX="129.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
+            <Rectangle fx:id="cartaTurn" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" layoutX="192.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
+            <Rectangle fx:id="cartaRiver" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" layoutX="256.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
+         </children>
+      </Pane>
+      <Label fx:id="boteEtiqueta" alignment="CENTER" layoutX="566.0" layoutY="389.0" prefHeight="20.0" prefWidth="76.0" styleClass="etiqueta" stylesheets="@mesa.css" />
+      <Label alignment="CENTER" layoutX="566.0" layoutY="371.0" prefHeight="20.0" prefWidth="76.0" styleClass="etiqueta" text="Bote de " />
+      <Label fx:id="jugador1Accion" layoutX="370.0" layoutY="513.0" styleClass="etiqueta" />
+      <Label fx:id="jugador2Accion" layoutX="416.0" layoutY="337.0" styleClass="etiqueta" />
+      <Label fx:id="jugador3Accion" layoutX="584.0" layoutY="258.0" styleClass="etiqueta" />
+      <Label fx:id="jugador4Accion" layoutX="721.0" layoutY="310.0" styleClass="etiqueta" />
+      <Label fx:id="jugador5Accion" layoutX="809.0" layoutY="513.0" styleClass="etiqueta" />
+      <Label fx:id="jugador6Accion" layoutX="751.0" layoutY="601.0" styleClass="etiqueta" />
+      <Label fx:id="jugador7Accion" layoutX="581.0" layoutY="686.0" styleClass="etiqueta" />
+      <Label fx:id="jugador8Accion" layoutX="435.0" layoutY="613.0" styleClass="etiqueta" />
+   </children>
+</AnchorPane>

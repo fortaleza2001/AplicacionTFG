@@ -1,0 +1,66 @@
+.table-view {
+    -fx-background-color: #3d673c; /* Fondo verde */
+    -fx-padding: 20px; /* Ajusta el padding según tus necesidades */
+    -fx-background-radius: 15px; /* Radio de borde para redondear las esquinas */
+    
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #0078D7;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 30px;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #ccc;
+    -fx-border-insets: 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #e9e9e9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #ffcc00;
+    -fx-text-fill: #000;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 15;
+    -fx-font-size: 16px; /* Ajusta el tamaño de la fuente aquí */
+    -fx-font-weight: bold; /* Ajusta el peso de la fuente aquí */
+    -fx-border-color: #bbb; /* Color del borde */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-style: solid; /* Estilo del borde */
+    -fx-border-insets: 0; /* Inset del borde */
+}
+
+
+.button {
+    -fx-background-color: #4CAF50; /* Color de fondo */
+    -fx-text-fill: black; /* Color del texto */
+    -fx-font-size: 20px; /* Tamaño de fuente */
+    -fx-font-weight: bold; /* Peso de la fuente */
+    -fx-padding: 8px 16px; /* Espaciado interno */
+    -fx-border-radius: 4px; /* Radio del borde */
+    -fx-background-radius: 4px; /* Radio del fondo */
+    -fx-border-color: transparent; /* Color del borde */
+    -fx-font-style: italic;
+    
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Color de fondo al hacer hover */
+    -fx-text-fill: white; /* Color del texto al hacer hover */
+    -fx-cursor: hand; /* Cambiar el cursor a una mano */
+}
