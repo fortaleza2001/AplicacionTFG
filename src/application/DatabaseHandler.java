@@ -41,6 +41,12 @@ public class DatabaseHandler {
 
     public void verificarYCrearTablas() {
         try (Statement stmt = connection.createStatement()) {
+            // Eliminar tablas si ya existen
+            //stmt.execute("DROP TABLE IF EXISTS recuerdosesion");
+            //stmt.execute("DROP TABLE IF EXISTS manos");
+            //stmt.execute("DROP TABLE IF EXISTS sesiones");
+
+            // Crear tabla sesiones si no existe
             String createTableSesiones = "CREATE TABLE IF NOT EXISTS sesiones (" +
                                          "nombre_sesion TEXT PRIMARY KEY," +
                                          "fecha_inicio TEXT)";
@@ -52,6 +58,7 @@ public class DatabaseHandler {
                 System.out.println("La tabla sesiones ha sido creada.");
             }
 
+            // Crear tabla manos si no existe
             String createTableManos = "CREATE TABLE IF NOT EXISTS manos (" +
                                       "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                       "sesion_nombre TEXT," +
@@ -76,6 +83,7 @@ public class DatabaseHandler {
                 System.out.println("La tabla manos ha sido creada.");
             }
 
+            // Crear tabla recuerdosesion si no existe
             String createTableRecuerdoSesion = "CREATE TABLE IF NOT EXISTS recuerdosesion (" +
                                                "nota TEXT)";
             stmt.execute(createTableRecuerdoSesion);
@@ -91,6 +99,8 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
+
+
 
     public void insertarSesion(String nombreSesion, String fechaInicio) {
         String insertSesionSQL = "INSERT INTO sesiones (nombre_sesion, fecha_inicio) VALUES (?, ?)";
@@ -395,6 +405,7 @@ public class DatabaseHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
         return sesion;
     }
 

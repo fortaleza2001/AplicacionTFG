@@ -8,10 +8,10 @@
 <AnchorPane prefHeight="400.0" prefWidth="400.0" stylesheets="@mesa2.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OpenSessionDialogController">
    <children>
       <!-- Agrega el TableView con una columna -->
-      <TableView fx:id="sesionesTable" cache="true" editable="true" layoutX="27.0" layoutY="14.0" prefHeight="312.0" prefWidth="347.0" stylesheets="@mesa2.css" tableMenuButtonVisible="true">
+      <TableView fx:id="sesionesTable" cache="true" editable="true" layoutX="27.0" layoutY="14.0" prefHeight="312.0" prefWidth="347.0" stylesheets="@dialogo.css" tableMenuButtonVisible="true">
           <columns>
-              <TableColumn fx:id="sesionColumn" text="Sesión" />
-            <TableColumn fx:id="fechaColumn" text="Fecha" />
+              <TableColumn fx:id="sesionColumn" editable="false" text="Sesión" />
+            <TableColumn fx:id="fechaColumn" editable="false" text="Fecha" />
           </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

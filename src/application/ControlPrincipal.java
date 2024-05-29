@@ -34,6 +34,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -45,7 +47,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class SampleController {
+public class ControlPrincipal {
 
     @FXML
     public Label estadisticaPrefol1Label;
@@ -58,6 +60,8 @@ public class SampleController {
     public Label estadisticaPrefol4Label;
     @FXML
     public Label estadisticaPrefol5Label;
+    @FXML
+    public Label fechaLabel;
     
     
 	private List <Mano> manosActuales = new ArrayList<>();
@@ -171,14 +175,11 @@ public class SampleController {
        
         String sessionId =dbHandler.cargarSesion() ;
         if (sessionId != null) {
-            System.out.println("Restaurando la sesión: " + sessionId);
+          
             this.cargarSesion(sessionId);
          
             // Restaurar el estado de la aplicación basado en la sesión cargada
-        } else {
-            System.out.println("No se encontró ninguna sesión anterior.");
-            // Iniciar una nueva sesión
-        }
+        } 
         
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
         	if(this.sesionActual!=null)
@@ -229,7 +230,7 @@ public class SampleController {
          
 
             // Crear un punto de datos y agregarlo a la serie
-            XYChart.Data<String, Number> dataPoint = new XYChart.Data<>(""+i, beneficio);
+            XYChart.Data<String, Number> dataPoint = new XYChart.Data<>(""+(i+1), beneficio);
             beneficiosSeries.getData().add(dataPoint);
 
             // Crear un Tooltip para mostrar información del punto de datos y asociarlo al nodo del punto de datos
@@ -237,9 +238,11 @@ public class SampleController {
             Tooltip.install(dataPoint.getNode(), tooltip);
             
             
-           
+            grafico.applyCss();
+            grafico.layout();
             
         }
+        
     }
 
     private void configurarTabla() {
@@ -390,7 +393,7 @@ public class SampleController {
             Parent root = loader.load();
             
             // Obtener el controlador de la ventana de mesa
-            SampleController2 mesaController = loader.getController();
+            ControladorMesa mesaController = loader.getController();
             
             // Configurar el número de mesa en el controlador de la ventana de mesa
             mesaController.mostrarNumeroJugadores(manosActuales.get(nºmano).getNumeroJugadores());
@@ -489,26 +492,19 @@ public class SampleController {
             	System.out.println("No se ha seleccionado ninguna sesion.");
             	return;
             }
-            this.sesionActual =sesionSeleccionada;
-       
-            List<Mano> manos = dbHandler.obtenerManosDeSesionOrdenadasPorFecha(sesionSeleccionada.getNombreSesion());
             
-            manosActuales = manos;
-            
-            lis();
-            las();
-            los();
-            lol();
-            lol2();
+           
+      
+           
+            cargarSesion(sesionSeleccionada.getNombreSesion());
            
           
         
             
 
             
-            cargarDatosEjemplo(manos);
-            agregarDatosGrafico();
-            titulo.setText(sesionSeleccionada.getNombreSesion());
+          
+           
             
         } catch (IOException e) {
             e.printStackTrace();
@@ -532,12 +528,16 @@ public class SampleController {
              
              manosActuales = manos;
             
+             SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+             String fechaFormateada = dateFormat.format(manosActuales.get(0).getFecha());
+             this.fechaLabel.setText("FECHA DE LA SESION: " + fechaFormateada);
 
              lis();
              las();
              los();
              lol();
              lol2();
+            
              cargarDatosEjemplo(manos);
              agregarDatosGrafico();
              titulo.setText(sesion);
@@ -655,5 +655,36 @@ public class SampleController {
         estadisticaPrefol5Label.setText(" " +(df.format(estadisticaPreflop5) ) +"%");
     	
     }
+    
+   
+    @FXML
+    public void abrirAyuda() {
+        try {
+            // Ruta del archivo de ayuda
+            String rutaArchivo = "C:\\Documento\\DocumentoAyuda.pdf";
+
+            // Crea un objeto File con la ruta del archivo
+            File archivo = new File(rutaArchivo);
+            System.out.println("Ruta absoluta del archivo: " + archivo.getAbsolutePath());
+
+            // Verifica si el archivo existe
+            if (archivo.exists()) {
+                // Verifica si Desktop es compatible con el sistema operativo
+                if (Desktop.isDesktopSupported()) {
+                    Desktop desktop = Desktop.getDesktop();
+                    desktop.open(archivo); // Abre el archivo con la aplicación predeterminada
+                } else {
+                    System.out.println("Desktop no es compatible con el sistema operativo.");
+                }
+            } else {
+                System.out.println("El archivo de ayuda no se encuentra en la ruta especificada: " + rutaArchivo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Maneja cualquier excepción imprevista
+        }
+    }
+
+
+    
  
 }

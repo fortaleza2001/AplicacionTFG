@@ -11,7 +11,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-public class SampleController2 {
+public class ControladorMesa {
 
 	@FXML
 	public Label boteEtiqueta;
@@ -198,6 +198,8 @@ public class SampleController2 {
         cartaImagenMap.put(" ", "Volteada.PNG");
         // Agrega más cartas según sea necesario
     }
+    
+    boolean enseñado=false;
 
     // Método para obtener la imagen de la carta según su nombre
     public ImagePattern obtenerImagenCarta(String nombreCarta) {
@@ -249,7 +251,7 @@ public class SampleController2 {
             };
         // Ruta a tu imagen (asegúrate de usar el prefijo "file:")
         String imagePath = getClass().getResource("/resources/Jugador/Jugador.png" ).toExternalForm();
-        System.out.println(imagePath);
+      
 
         // Cargar la imagen
         Image image = new Image(imagePath);
@@ -296,7 +298,6 @@ public class SampleController2 {
         this.manoActual = mano;
         this.manoActual.maquetarPosiciones();
         
-        System.out.println("cbet " +manoActual.Cbet("carras01"));
         setearNombresCartas(mano);
         actualizarGUIConAccion(mano.getAcciones().get(punteroAccion));
       
@@ -406,12 +407,12 @@ public class SampleController2 {
         			{
         				
         				valor =raisemano;
-        				System.out.println("raise ");
+        				
         			}
         			else
         			{
         				
-        				System.out.println("raise -not");
+        				
         			}
         			
         			this.Botee.put(accion.getNombreJugador(), valor);
@@ -460,7 +461,7 @@ public class SampleController2 {
         	{
         		if(((String)this.manoActual.getPosiciones().keySet().toArray()[x]).equals(accion.getNombreJugador()))
         		{raisemano=  accion.getCantidad();
-        			jugadoresAcciones[manoActual.getPosiciones().get(((String)this.manoActual.getPosiciones().keySet().toArray()[x]))-1].setText("POST BIG BLIND : " + accion.getCantidad());
+        			jugadoresAcciones[manoActual.getPosiciones().get(((String)this.manoActual.getPosiciones().keySet().toArray()[x]))-1].setText("All-IN: " + accion.getCantidad());
         			
         			//boteCantidad+= accion.getCantidad();
         			this.Botee.put(accion.getNombreJugador(), accion.getCantidad());
@@ -490,10 +491,9 @@ public class SampleController2 {
         
           if(accion.getTipoAccion().equals("DRAW - FLOP"))
         {
-        	  System.out.println(accion.getCartas().get(0));
+        	
         	cartaFlop1.setFill(obtenerImagenCarta(accion.getCartas().get(0).replace("[", "")));
-        	System.out.println(accion.getCartas().get(1));
-        	System.out.println(accion.getCartas().get(2).replace("]", "").trim());
+        	
         	cartaFlop2.setFill(obtenerImagenCarta(accion.getCartas().get(1)));
         	cartaFlop3.setFill(obtenerImagenCarta(accion.getCartas().get(2).replace("]", "").trim()));
         	
@@ -511,7 +511,7 @@ public class SampleController2 {
         }
         
           if(accion.getTipoAccion().equals("DEAL - TURN"))
-        {System.out.println(accion.getCartas().get(0));
+        {
         	cartaTurn.setFill(obtenerImagenCarta(accion.getCartas().get(0).replace("[", "").replace("]", "")));
         	for(int x =0;x<this.Botee.keySet().toArray().length;x++)
         	{
@@ -539,15 +539,33 @@ public class SampleController2 {
           if(accion.getTipoAccion().contains("SHOW"))
           {
         	  
+        	  if(enseñado==false)
+    			{
+    				borraracciones();
+    				enseñado =true;
+    				for(int i =0;i<this.Botee.keySet().toArray().length;i++)
+                	{
+                		boteCantidad += this.Botee.get(this.Botee.keySet().toArray()[i]);
+                	}
+    				Botee.clear();
+                	boteEtiqueta.setText(String.format("%.2f", boteCantidad));
+    			}
+        	  
         	  for(int x =0;x<this.manoActual.getPosiciones().size();x++)
           	{
           		if(((String)this.manoActual.getPosiciones().keySet().toArray()[x]).equals(accion.getNombreJugador()))
-          		{System.out.println(accion.getCartas().get(0));
+          			
+          		{	
+          			
+          			
           			jugadoresAcciones[manoActual.getPosiciones().get(((String)this.manoActual.getPosiciones().keySet().toArray()[x]))-1].setText("SHOW");
           			jugadoresCartas[manoActual.getPosiciones().get(((String)this.manoActual.getPosiciones().keySet().toArray()[x]))-1][0].setFill(obtenerImagenCarta(accion.getCartas().get(0).replace("[", "")));
                     jugadoresCartas[manoActual.getPosiciones().get(((String)this.manoActual.getPosiciones().keySet().toArray()[x]))-1][1].setFill(obtenerImagenCarta(accion.getCartas().get(1).replace("]", "")));
-                  	
+                   
           		}
+          		
+          		
+            	
           		
           	}
         	  
@@ -558,8 +576,7 @@ public class SampleController2 {
         
         
         
-        System.out.println(accion.getTipoAccion());
-        System.out.println(this.boteCantidad);
+        
     }
 
     
@@ -567,11 +584,11 @@ public class SampleController2 {
     {
     	for (int x = 0; x < mano.getPosiciones().size(); x++) {
     	    jugadoresNombres[mano.getPosiciones().get(((String) mano.getPosiciones().keySet().toArray()[x]))-1].setText(((String) mano.getPosiciones().keySet().toArray()[x]));
-    	    System.out.println((String) mano.getPosiciones().keySet().toArray()[x]);
+    	    
     	    
     	    if(((String) mano.getPosiciones().keySet().toArray()[x]).equals("carras01") )
     	    {
-    	    	System.out.println("Car");
+    	    	
     	    	List<String> cartas = mano.getCartasJugadores().get((String) mano.getPosiciones().keySet().toArray()[x]);
                 
                 // Suponiendo que tengas un método en la clase Mano para obtener las imágenes de las cartas
@@ -630,6 +647,7 @@ public class SampleController2 {
     			jugadoresAcciones[x].setText("");
     		}
     	}
+    	this.enseñado=false;
     }
     
     public void reset()

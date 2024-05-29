@@ -14,14 +14,14 @@ public class Main extends Application {
         try {
         	DatabaseHandler.getInstance().connect();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Sample.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Principal.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Image icono = new Image( getClass().getResource("/resources/Logo/Logo.PNG" ).toExternalForm());
             primaryStage.getIcons().add(icono);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
-            primaryStage.setTitle("Ejecutando Sample.fxml");
+            primaryStage.setTitle("BankRoll Analytics");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

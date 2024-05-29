@@ -356,10 +356,12 @@ public class LectorManos {
         System.out.println("Mano: " + mano);
         this.manos.add(mano);
         
+        
        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
+        String fechaFormateada = dateFormat.format(mano.getFecha());
         
-        
-       // dbHandler.insertarMano(mano.getIdSesion(),""+f.lastModified(), mano);
+        //dbHandler.insertarMano(mano.getIdSesion(),""+ fechaFormateada, mano);
         
       
     }
@@ -374,7 +376,7 @@ public class LectorManos {
     public static void main(String[] args) {
         LectorManos lector = new LectorManos();
         // Reemplaza con la ruta a tu archivo
-        File archivo = new File("C:\\Programs\\PartyEspana\\PartyPokerES\\HandHistory\\carras01\\20240524\\Sevilla.txt");
+        File archivo = new File("C:\\Programs\\PartyEspana\\PartyPokerES\\HandHistory\\carras01\\20240527\\Saint-Louis.txt");
         lector.leerArchivoYMandarInfo(archivo);
         lector.cerrarConexion();
     }
