@@ -256,7 +256,8 @@ public class ControlPrincipal {
                     setText(null);
                 } else {
                     setText(item.toString());
-                    setAlignment(Pos.CENTER); // Centramos el texto en la celda
+                    setAlignment(Pos.CENTER);
+                    setStyle("-fx-font-weight: bold;");
                 }
             }
         });
@@ -532,11 +533,7 @@ public class ControlPrincipal {
              String fechaFormateada = dateFormat.format(manosActuales.get(0).getFecha());
              this.fechaLabel.setText("FECHA DE LA SESION: " + fechaFormateada);
 
-             lis();
-             las();
-             los();
-             lol();
-             lol2();
+             setearEstadisticas();
             
              cargarDatosEjemplo(manos);
              agregarDatosGrafico();
@@ -547,7 +544,7 @@ public class ControlPrincipal {
 
    
 
-    public void lis()
+    public void estadisticaPreflopRaise()
     {
     	double cantidad=0;
     	for(int x =0;x<manosActuales.size();x++)
@@ -569,7 +566,7 @@ public class ControlPrincipal {
     }
     
     
-    public void las()
+    public void estadisticaPreflop3Bet()
     {
     	double cantidad=0;
     	for(int x =0;x<manosActuales.size();x++)
@@ -591,7 +588,7 @@ public class ControlPrincipal {
     }
     
     
-    public void los()
+    public void estadisticaPreflop3BetFold()
     {
     	double cantidad=0;
     	for(int x =0;x<manosActuales.size();x++)
@@ -613,7 +610,7 @@ public class ControlPrincipal {
     }
 
 
-    public void lol()
+    public void estadisticaPreflopSteal()
     {
     	double cantidad=0;
     	for(int x =0;x<manosActuales.size();x++)
@@ -635,7 +632,7 @@ public class ControlPrincipal {
     }
 
     
-    public void lol2()
+    public void estadisticaCbet()
     {
     	double cantidad=0;
     	for(int x =0;x<manosActuales.size();x++)
@@ -656,6 +653,16 @@ public class ControlPrincipal {
     	
     }
     
+    
+    
+    public void setearEstadisticas()
+    {
+    	estadisticaPreflopRaise();
+        estadisticaPreflop3Bet();
+        estadisticaPreflop3BetFold();
+        estadisticaPreflopSteal();
+        estadisticaCbet();
+    }
    
     @FXML
     public void abrirAyuda() {
